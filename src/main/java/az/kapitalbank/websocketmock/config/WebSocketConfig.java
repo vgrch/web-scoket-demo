@@ -31,11 +31,12 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
         config.setApplicationDestinationPrefixes("/message");
     }
 
-    //        ws://host:port/ws-register?jwt=akmfkjoamnfkoamfklomla
+    //        ws://host:port/ws/ws-register?jwt=akmfkjoamnfkoamfklomla
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
         registry
-                .addEndpoint("/ws-register")
+                .addEndpoint("/ws/ws-register")
+                // BE CAREFUL THIS URL MUST MATCH WITH REVERSE PROXY REDIRECTION URL
                 .setAllowedOrigins("*")
                 .addInterceptors(new HandshakeInterceptor() {
                     @Override
@@ -49,8 +50,8 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
                         log.info("START HANDSHAKE. VALIDATING TOKEN {} ", token);
 
-                        if (StringUtils.isEmpty(token) || !jwt.equals(token)){
-                            log.warn("INVALID TOKEN {} ",token);
+                        if (StringUtils.isEmpty(token) || !jwt.equals(token)) {
+                            log.warn("INVALID TOKEN {} ", token);
                             return false;
                         }
 

@@ -1,2 +1,8 @@
 server:
-  port: 8081
+  port: 8080
+#  ssl:
+#    key-store: path/to/server.jks
+#    trust-store: path/to/trusted.jks
+#    key-store-password: 22222222
+#    trust-store-password: 22222222
+#    client-auth: need

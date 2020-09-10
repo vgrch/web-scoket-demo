@@ -17,7 +17,8 @@ function setConnected(connected) {
 
 function connect() {
     // var socket = new SockJS('/websocket-register', null, {transports: ['xhr-streaming'], headers: {'Authorization': 'Bearer jwt'}});
-    var socket = new WebSocket('ws://localhost:8080/ws-register?jwt=NWZzMGIyM3J0MXl3a2x1MjNlcDh2YXozZzhrbG9kMDhmZHp4ZnJsNGh3aWpmNHBjeXd1cmF4ZThmbWxsdGN3enRhc3kzcjh5M3d4bTh3N3BxaWR0emljaDkwOG1sY29pbHRyNWswNnF5eWM5OWVuMzdsYTU5d3F3amx1ZHkwd2Q=');
+    // var socket = new WebSocket('ws://10.0.82.24:30153/ws-register?jwt=NWZzMGIyM3J0MXl3a2x1MjNlcDh2YXozZzhrbG9kMDhmZHp4ZnJsNGh3aWpmNHBjeXd1cmF4ZThmbWxsdGN3enRhc3kzcjh5M3d4bTh3N3BxaWR0emljaDkwOG1sY29pbHRyNWswNnF5eWM5OWVuMzdsYTU5d3F3amx1ZHkwd2Q=');
+    var socket = new WebSocket('wss://pre.optimus.kapitalbank.az/ws/ws-register?jwt=NWZzMGIyM3J0MXl3a2x1MjNlcDh2YXozZzhrbG9kMDhmZHp4ZnJsNGh3aWpmNHBjeXd1cmF4ZThmbWxsdGN3enRhc3kzcjh5M3d4bTh3N3BxaWR0emljaDkwOG1sY29pbHRyNWswNnF5eWM5OWVuMzdsYTU5d3F3amx1ZHkwd2Q=');
     stompClient = Stomp.over(socket);
     stompClient.connect({}, function (frame) {
         setConnected(true);
